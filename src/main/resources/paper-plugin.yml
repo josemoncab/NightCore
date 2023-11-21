@@ -1,0 +1,6 @@
+name: ${pluginName}
+version: ${pluginVersion}
+main: ${mainClass}
+description: ${pluginDescription}
+author: ${pluginAuthor}
+api-version: "1.20"
