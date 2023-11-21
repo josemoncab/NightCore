@@ -1,1 +1,2 @@
 # NightCore
+Custom plugin
