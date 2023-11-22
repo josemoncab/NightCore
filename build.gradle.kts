@@ -1,6 +1,7 @@
 plugins {
     id("java")
     id("xyz.jpenilla.run-paper") version "2.2.2"
+    id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
 group = "${project.property("group")}"
@@ -16,6 +17,7 @@ repositories {
 dependencies {
     // PaperMC
     compileOnly("io.papermc.paper:paper-api:${project.property("mcVersion")}-${project.property("paperApi")}")
+
 }
 
 // Replace tokens in the files
