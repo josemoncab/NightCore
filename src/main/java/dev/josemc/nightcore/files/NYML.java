@@ -8,11 +8,14 @@ import dev.josemc.nightcore.utils.FileUtil;
 import java.io.File;
 import java.lang.reflect.Field;
 
+/**
+ * Load read-only config files
+ * */
 public class NYML {
     private final Class<?> data;
     private final CommentedFileConfig document;
 
-    public NYML(String path, Class<?> data) {
+    private NYML(String path, Class<?> data) {
         this.data = data;
         document = CommentedFileConfig.builder(new File(path)).preserveInsertionOrder().build();
         if (!FileUtil.create(new File(path))) {
@@ -33,7 +36,11 @@ public class NYML {
         return new NYML(file.getPath(), data);
     }
 
-    public void initializeOptions() {
+    public void reload() {
+        loadToClass();
+    }
+
+    private void initializeOptions() {
         Field[] fields = data.getFields();
         for (Field field: fields) {
             if (field.isAnnotationPresent(dev.josemc.nightcore.files.annotations.Path.class)) {
@@ -52,7 +59,7 @@ public class NYML {
         document.save();
     }
 
-    public void loadToClass() {
+    private void loadToClass() {
         Field[] fields = data.getFields();
         for (Field field: fields) {
             if (field.isAnnotationPresent(dev.josemc.nightcore.files.annotations.Path.class)) {
