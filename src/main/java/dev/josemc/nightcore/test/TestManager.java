@@ -9,13 +9,10 @@ public class TestManager {
     private final String dataFolder = plugin.getDataFolder().getPath();
 
     public TestManager() {
-        this.testFiles();
+        testFiles();
     }
 
     private void testFiles() {
-        /* TEST 1: Crear el archivo con parametros por defecto
-        *   Crear archivo en la raiz de la carpeta del plugin
-        * */
         NYML test1 = NYML.loadFrom(ExampleHolder.class);
     }
 }
