@@ -45,7 +45,7 @@ public class NYML {
                     e.printStackTrace();
                 }
                 if (field.isAnnotationPresent(Comment.class)) {
-                    document.setComment(path, String.join("\n", field.getAnnotation(Comment.class).value()));
+                    document.setComment(path, " " + String.join("\n ", field.getAnnotation(Comment.class).value()));
                 }
             }
         }
