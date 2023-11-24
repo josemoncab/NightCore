@@ -18,6 +18,8 @@ dependencies {
     // PaperMC
     compileOnly("io.papermc.paper:paper-api:${project.property("mcVersion")}-${project.property("paperApi")}")
 
+    // NightConfig
+    implementation("com.electronwill.night-config:hocon:${project.property("nightConfig")}")
 }
 
 // Replace tokens in the files
